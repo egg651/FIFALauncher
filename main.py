@@ -15,16 +15,16 @@ def main():
     config_exe = "fifaconfig.exe"
 
     # Detecting fifa executable
-    print "Looking for FIFA executable..."
+    print ("Looking for FIFA executable...")
     fifa_exe = ""
     found_fifa = False
     for file in os.listdir('.'):
-        if re.match('fifa[0-9]+.exe', file):
+        if re.match('fifa(.*)+.exe', file):
             found_fifa = True
             fifa_exe = file
 
     if not found_fifa:
-        print "Unable to find FIFA executable, please run from the same directory as fifa*.exe"
+        print ("Unable to find FIFA executable, please run from the same directory as fifa*.exe")
         os.system("pause")
         return 1
 
@@ -59,10 +59,10 @@ def main():
                 ProcessId=process.ProcessID
             )
             watcher()
-            print "Killing config/launcher..."
+            print ("Killing config/launcher...")
             config_process.Terminate()
 
-            print "All done. Cheers Jeff!"
+            print ("All done. Cheers Jeff!")
             return 0
 
 
